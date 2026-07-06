@@ -1290,6 +1290,9 @@ public class CbExtServerProperties {
 	@Value("${user.search.limit}")
 	private int userSearchLimit;
 
+	@Value("${sb.service.assign.public.role.path}")
+	private String sbAssignPublicRolePath;
+
 	public int getUserSearchLimit() {
 		return userSearchLimit;
 	}
@@ -4330,5 +4333,13 @@ public class CbExtServerProperties {
 
 	public void setUserAchievementFileUploadAllowedExtensions(String userAchievementFileUploadAllowedExtensions) {
 		this.userAchievementFileUploadAllowedExtensions = userAchievementFileUploadAllowedExtensions;
+	}
+
+	public String getSbAssignPublicRolePath() {
+		return sbAssignPublicRolePath;
+	}
+
+	public void setSbAssignPublicRolePath(String sbAssignPublicRolePath) {
+		this.sbAssignPublicRolePath = sbAssignPublicRolePath;
 	}
 }
