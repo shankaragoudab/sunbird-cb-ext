@@ -1380,6 +1380,9 @@ public class CbExtServerProperties {
 	@Value("${certificate-generator-download-url}")
 	private String certificateGeneratorDownloadUrl;
 
+	@Value("${kafka.event.envelope.version:2}")
+	private Integer kafkaEventEnvelopeVersion;
+
 	public int getUserSearchLimit() {
 		return userSearchLimit;
 	}
@@ -4687,5 +4690,9 @@ public class CbExtServerProperties {
 
 	public void setCertificateGeneratorDownloadUrl(String certificateGeneratorDownloadUrl) {
 		this.certificateGeneratorDownloadUrl = certificateGeneratorDownloadUrl;
+	}
+
+	public Integer getKafkaEventEnvelopeVersion() {
+		return kafkaEventEnvelopeVersion;
 	}
 }
