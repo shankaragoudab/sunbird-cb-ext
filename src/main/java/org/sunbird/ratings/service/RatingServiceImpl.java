@@ -474,8 +474,11 @@ public class RatingServiceImpl implements RatingService {
             response.setResponseCode(HttpStatus.OK);
             response.getParams().setStatus(Constants.SUCCESSFUL);
             if(requestRating.getComment()==null && requestRating.getCommentBy()==null) {
-                System.out.println("Message "+mapper.writeValueAsString(ratingMessage));
-                kafkaProducer.push(updateRatingTopicName, ratingMessage);
+                Map<String, Object> envelopedRatingEvent = new HashMap<>();
+                envelopedRatingEvent.put(Constants.EVENT_TYPE, Constants.EVENT_TYPE_RATING);
+                envelopedRatingEvent.put(Constants.DATA, ratingMessage);
+                envelopedRatingEvent.put(Constants.KAFKA_EVENT_VERSION_KEY, serverConfig.getKafkaEventEnvelopeVersion());
+                kafkaProducer.pushWithKey(updateRatingTopicName, envelopedRatingEvent, requestRating.getUserId());
             }
         } catch (ValidationException ex) {
             logger.error(ex);

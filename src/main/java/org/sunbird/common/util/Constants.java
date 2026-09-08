@@ -1740,4 +1740,7 @@ public class Constants {
 	public static final String TARGET_ORG_ID_KEY = "targetOrgId";
 	public static final String API_VERSION = "apiVersion";
 	public static final String USER_MIGRATE_V2 = "userMigrateV2";
+	public static final String KAFKA_EVENT_VERSION_KEY = "version";
+	public static final String EVENT_TYPE_EVENT_ATTENDED = "EVENT_ATTENDED";
+	public static final String EVENT_TYPE_RATING = "RATING";
 }
